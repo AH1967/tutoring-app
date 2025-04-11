@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up & Login - Tutoring App</title>
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="styles/auth.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Tutoring Platform</h1>
+
+        <!-- Switch Between Sign Up & Login -->
+        <div class="auth-switch">
+            <button id="show-signup" class="active">Sign Up</button>
+            <button id="show-login">Login</button>
+        </div>
+
+        <!-- Sign Up Form -->
+<div id="signup-form">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+        <input type="text" id="signup-name" placeholder="Full Name" required>
+        <input type="email" id="signup-email" placeholder="Email" required>
+        <input type="password" id="signup-password" placeholder="Password" required>
+        <select id="signup-role">
+            <option value="student">Student</option>
+            <option value="tutor">Tutor</option>
+        </select>
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+<!-- Login Form -->
+<div id="login-form" style="display: none;">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="email" id="login-email" placeholder="Email" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+
+    <!-- Link JavaScript -->
+    <script src="scripts/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+/* General Styles */
+body {
+    font-family: 'Inter', 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f5f0; /* Light Beige Background */
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f5f0; /* Matching Background */
+    padding: 15px 40px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #222; /* Dark Text for Contrast */
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #007bff; /* Subtle Hover Effect */
+}
+
+/* Active Link Styling */
+.nav-links .active {
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* Remove Container Background */
+.dashboard-content {
+    width: 100%;
+    max-width: none;
+    margin: 20px auto;
+    background: none;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+/* Tutor Section Styling */
+#find-tutors-section {
+    padding: 20px;
+}
+
+/* Search + Sort Inputs (matches dashboard) */
+#searchTutor, #sortTutors {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Tutor Card (copied from dashboard.css) */
+.tutor-card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Tutor Image - Circular */
+.tutor-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Book Button */
+.tutor-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.tutor-card button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Booked Sessions Section */
+#view-sessions-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#booked-sessions-list {
+    list-style: none;
+    padding: 0;
+}
+
+#booked-sessions-list li {
+    background: #f8f9fa;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    border-left: 5px solid #007bff;
+}
+
+/* Cancel Booking Button */
+.cancel-btn {
+    background: #000000;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.cancel-btn:hover {
+    background: #233cc8;
+}
+
+
+/* Study Resources Section */
+#study-resources-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Resource Cards */
+.resource-card {
+    background: #f8f9fa;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border-left: 5px solid #007bff;
+}
+
+/* Download Button */
+.download-btn {
+    background: #28a745;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.download-btn:hover {
+    background: #218838;
+}
+
+
+
+/* Schedule Section */
+.schedule-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.day-column {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px; /* Wider boxes */
+}
+
+.day-column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.time-slots button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    background-color: royalblue;
+}
+
+.time-slots button.selected {
+    background-color: green;
+}
+
+/* Save & Reset Buttons */
+.schedule-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.btn-save {
+    background: green;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-reset {
+    background: red;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Upload Materials Section */
+#upload-materials-section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#upload-materials-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.upload-input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.upload-btn {
+    background: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.upload-btn:hover {
+    background: #218838;
+}
+
+/* Uploaded Materials List */
+/* Ensure each uploaded material is displayed in a grid layout */
+#materials-list li {
+    display: flex;
+    justify-content: space-between; /* Ensures even spacing */
+    align-items: center; /* Aligns items in the center */
+    background: #f8f9fa;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-left: 5px solid #007bff;
+}
+
+/* Ensure consistent spacing between items */
+#materials-list li strong {
+    min-width: 200px; /* Set fixed width for titles */
+}
+
+#materials-list li .subject {
+    min-width: 120px; /* Ensures subject names align */
+}
+
+#materials-list li .buttons {
+    display: flex;
+    gap: 10px; /* Adds spacing between buttons */
+}
+
+/* Ensure buttons remain the same size */
+#materials-list li .download-btn,
+#materials-list li .delete-btn {
+    min-width: 120px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+/* Chat Container */
+.chat-container {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+/* Chat Messages */
+.chat-message {
+    background: #fff;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border-left: 4px solid #007bff;
+}
+
+/* Input Field */
+.chat-input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Send Button */
+.chat-send-btn {
+    background: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.chat-send-btn:hover {
+    background: #218838;
+}
+
+.student-message {
+    background-color: #e0f7ff; /* Light blue for student */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    text-align: left;
+    width: fit-content;
+}
+
+.tutor-message {
+    background-color: #d4edda; /* Light green for tutor */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    text-align: right;
+    width: fit-content;
+    margin-left: auto; /* Push tutor messages to the right */
+}
+
+.chat-message span {
+    font-size: 12px;
+    color: gray;
+    margin-left: 10px;
+  }
+  

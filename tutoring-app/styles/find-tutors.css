@@ -1,0 +1,227 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif; /* Google Font */
+}
+
+/* Page Background Color */
+body {
+  background: #faf6f2; /* Matching light beige color */
+}
+
+
+/* Navbar Styling */
+.navbar {
+  background: #faf6f2; /* Light beige background */
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Navbar Container */
+.container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  justify-content: space-between;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #0c6b66; /* Greenish hover effect */
+}
+
+/* Sign Up & Log In Buttons */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.login, .signup {
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+.login {
+  background: #f4ece6;
+  color: black;
+  border: 1px solid #d6cfc8;
+}
+
+.login:hover {
+  background: #e6dbd0;
+}
+
+.signup {
+  background: #102ad4;
+  color: white;
+  border: none;
+}
+
+.signup:hover {
+  background: #0cb3a5;
+}
+
+/* Responsive Navbar for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .auth-buttons {
+    margin-top: 10px;
+  }
+}
+
+
+
+/* HEADER SECTION */
+
+
+
+/* Hero Section */
+.hero-section {
+  background: #faf6f2;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
+}
+  
+  /* Search and Sorting */
+  .search-sort {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .search-sort input, .search-sort select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  /* Tutors List */
+  /* Match Tutor Card Layout from Dashboard */
+.tutor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.tutor-card {
+  background: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.tutor-card:hover {
+  transform: translateY(-5px);
+}
+
+.tutor-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.tutor-card h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #222;
+}
+
+.tutor-card p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.tutor-card button {
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #999;
+  padding: 6px 12px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.tutor-card button:hover {
+  background: #e0e0e0;
+}
+
+  /* Book Session Button */
+  .book-btn {
+    background: #10d4c8;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .book-btn:hover {
+    background: #0cb3a5;
+  }
+  

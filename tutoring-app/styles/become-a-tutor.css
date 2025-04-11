@@ -1,0 +1,228 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Page Background */
+body {
+    background: #faf6f2;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    background: #faf6f2;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    justify-content: space-between;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #0c6b66;
+    font-weight: 600;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.login, .signup {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.login {
+    background: #f4ece6;
+    color: black;
+    border: 1px solid #d6cfc8;
+}
+
+.login:hover {
+    background: #e6dbd0;
+}
+
+.signup {
+    background: #102ad4;
+    color: white;
+    border: none;
+}
+
+.signup:hover {
+    background: #0cb3a5;
+}
+
+/* Hero Section */
+.hero {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Why Join Section */
+/* Why Become a Tutor Section */
+.why-join {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.why-join h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Why Join Cards Layout */
+.reasons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Individual Reason Card */
+.reason {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.reason:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Icon Styling */
+.reason-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Reason Title */
+.reason h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+/* Reason Text */
+.reason p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+
+/* Steps Section */
+.steps {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.steps h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.step-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.step {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+
+.step h3 {
+    font-size: 22px;
+    color: #333;
+}
+
+.step p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Apply Button */
+.apply-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.apply-btn {
+    text-decoration: none;
+    background: #10d4c8;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+.apply-btn:hover {
+    background: #0cb3a5;
+}

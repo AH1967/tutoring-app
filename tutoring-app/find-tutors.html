@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Tutors - Tutoring App</title>
+  <link rel="stylesheet" href="styles/find-tutors.css">
+  <link rel="stylesheet" href="styles/footer.css">
+   <!-- Google Font -->
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+ <!-- Navbar -->
+ <nav class="navbar">
+    <div class="container">
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="find-tutors.html">Find a Tutor</a></li>
+        <li><a href="become-a-tutor.html">Become a Tutor</a></li>
+      </ul>
+
+      <!-- Right Side -->
+      <div class="auth-buttons">
+        <a href="auth.html" class="login">Log In</a>
+        <a href="auth.html" class="signup">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <header>
+    <h1 class="hero-section">Find Your Perfect Tutor</h1>
+  </header>
+
+  <!-- Search and Sorting -->
+<div class="search-sort">
+  <input type="text" id="searchTutor" placeholder="Search by subject..." onkeyup="filterTutors()">
+  <select id="sortTutors" onchange="sortTutors()">
+      <option value="rating">Rating (High to Low)</option>
+      <option value="price">Price (Low to High)</option>
+  </select>
+</div>
+
+<!-- Tutors List (Dynamic Cards Loaded Here) -->
+<div id="tutor-list" class="tutor-list"></div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="find-tutors.html">Find a Tutor</a>
+      <a href="become-a-tutor.html">Become a Tutor</a>
+      <a href="auth.html">Log In</a>
+    </div>
+    <p>&copy; 2025 Tutoring App — Empowering Learning Everywhere</p>
+  </div>
+</footer>
+
+
+
+
+
+   
+
+  <script src="scripts/find-tutors.js"></script>
+</body>
+</html>

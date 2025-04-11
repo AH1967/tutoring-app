@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Online Tutoring</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h2 class="logo">Tutoring App</h2>
+        <ul class="nav-links">
+            <li><a href="#" id="menu-home" onclick="viewDashboard()">🏠 Home</a></li>
+            <li><a href="#" id="menu-view-sessions" onclick="viewBookedSessionsFromDB()">📅 View Sessions</a></li>
+
+
+            <li id="student-menu" style="display: none;"><a href="#" id="menu-tutors" onclick="viewTutors()">👨‍🏫 Find Tutors</a></li>
+            <li id="student-resources" style="display: none;"><a href="#" id="menu-resources" onclick="viewResources()">📚 Study Resources</a></li>
+            <li id="tutor-menu" style="display: none;"><a href="#" id="menu-availability" onclick="setAvailability()">📆 Manage Schedule</a></li>
+            <li id="tutor-materials" style="display: none;"><a href="#" id="menu-materials" onclick="uploadMaterials()">📤 Upload Materials</a></li>
+            <li><a href="#" id="menu-ask" onclick="askQuickQuestion()">💬 Group Chat</a></li>
+            <li><a href="#" id="logout-btn">🚪 Logout</a></li>
+
+
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-content">
+        <h1>Welcome, <span id="username">User</span>!</h1>
+        <p>Role: <span id="user-role">Student/Tutor</span></p>
+
+        <!-- Dynamic Sections -->
+        <section id="dashboard-section">
+            <h2 class="active-section">Dashboard Overview</h2>
+            <p>Manage your tutoring sessions effectively.</p>
+        </section>
+
+
+        <section id="tutor-profile-section" style="display:none;">
+            <h2>Complete Your Tutor Profile</h2>
+            <input type="text" id="tutor-subject" placeholder="Subject you teach">
+            <input type="number" id="tutor-price" placeholder="Hourly Rate ($)">
+            <input type="file" id="tutor-image">
+            <button id="saveProfileBtn">Save Profile</button>
+        </section>
+        
+
+
+
+        <!-- Find Tutors Section -->
+        <section id="find-tutors-section" style="display: none;">
+            <h2 class="active-section">Find Tutors</h2>
+            <input type="text" id="searchTutor" placeholder="Search by subject..." onkeyup="filterTutors()">
+            <select id="sortTutors" onchange="sortTutors()">
+                <option value="rating">Rating (High to Low)</option>
+                <option value="price">Price (Low to High)</option>
+            </select>
+            <div id="tutor-list"></div>
+        </section>
+
+
+
+
+
+
+<!-- View Booked Sessions Section -->
+<section id="view-sessions-section" style="display: none;">
+    <h2 class="active-section">📅 Your Booked Sessions</h2>
+        <p>Below are your upcoming tutoring sessions:</p>
+            <ul id="booked-sessions-list"></ul>
+</section>
+
+
+
+
+
+
+<!-- Study Resources Section -->
+<section id="study-resources-section" style="display: none;">
+    <h2 class="active-section">📚 Study Resources</h2>
+    <p>Find study materials for different subjects.</p>
+
+
+    <!-- Resources List -->
+    <div id="resources-list"></div>
+</section>
+
+
+
+
+
+
+
+
+
+<!-- Manage Schedule Section -->
+<section id="manage-schedule-section" style="display: none;">
+    <h2 class="active-section">📆 Manage Your Availability</h2>
+    <p>Select the time slots when you're available for tutoring.</p>
+
+    <!-- Schedule Grid -->
+    <div id="schedule-grid" class="schedule-container"></div>
+
+    <!-- Save & Reset Buttons -->
+    <div class="schedule-buttons">
+        <button id="save-schedule">💾 Save Schedule</button>
+        <button id="reset-schedule">🔄 Reset</button>
+    </div>
+</section>
+
+
+
+<!-- Upload Materials Section -->
+<section id="upload-materials-section" style="display: none;">
+    <h2>📤 Upload Study Materials</h2>
+    <p>Upload files or share study resources with students.</p>
+
+    <input type="text" id="materialTitle" class="upload-input" placeholder="Enter Material Title" required>
+    <input type="text" id="materialSubject" class="upload-input" placeholder="Enter Subject" required>
+    <input type="file" id="materialFile" class="upload-input" required>
+
+    <button class="upload-btn" onclick="uploadMaterial()">Upload</button>
+
+    <h3>📚 Uploaded Materials</h3>
+    <ul id="materials-list"></ul>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Ask a Quick Question Section -->
+<section id="ask-question-section" style="display: none;">
+    <h2>💬 Group Chat</h2>
+    <p>Students can ask questions, and tutors can reply in real time.</p>
+
+    <div id="chat-box" class="chat-container"></div>
+
+    <input type="text" id="message-input" class="chat-input" placeholder="Type your question...">
+    <button id="send-button" class="chat-send-btn">Send</button>
+</section>
+
+
+
+
+
+    </main>
+    <script src="scripts/dashboard.js"></script>
+   
+   
+    
+</body>
+</html>
