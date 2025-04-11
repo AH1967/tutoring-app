@@ -7,7 +7,7 @@ async function loadTutors() {
     tutorList.innerHTML = "Loading...";
 
     try {
-        const res = await fetch("http://localhost:5000/api/tutors");
+        const res = await fetch("https://tutoring-app-v9e9.onrender.com/api/tutors");
         tutors = await res.json();
 
         displayTutors(tutors);
