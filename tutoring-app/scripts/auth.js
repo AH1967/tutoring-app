@@ -28,7 +28,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
 
-    const response = await fetch("http://localhost:5000/api/auth/login", {
+    const response = await fetch("https://tutoring-app-v9e9.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -56,7 +56,7 @@ document.getElementById("signupForm").addEventListener("submit", async function 
     const password = document.getElementById("signup-password").value;
     const role = document.getElementById("signup-role").value;
 
-    const response = await fetch("http://localhost:5000/api/auth/register", {
+    const response = await fetch("https://tutoring-app-v9e9.onrender.com/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password, role }),

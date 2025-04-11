@@ -43,7 +43,7 @@ async function displayTutors() {
     tutorList.innerHTML = "";
 
     try {
-        const response = await fetch("http://localhost:5000/api/tutors");
+        const response = await fetch("https://tutoring-app-v9e9.onrender.com/api/tutors");
         const data = await response.json();
         tutors = data; // Save to global variable for filtering/sorting
 
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const token = localStorage.getItem("token");
             console.log("🔑 Token:", token);
 
-            const response = await fetch("http://localhost:5000/api/tutors/profile", {
+            const response = await fetch("https://tutoring-app-v9e9.onrender.com/api/tutors/profile", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -241,7 +241,7 @@ async function bookSession(tutorName) {
     const studentName = localStorage.getItem("userName");
 
     try {
-        const response = await fetch("http://localhost:5000/api/sessions/book", {
+        const response = await fetch("https://tutoring-app-v9e9.onrender.com/api/sessions/book", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -292,7 +292,7 @@ async function viewBookedSessionsFromDB() {
         const token = localStorage.getItem("token");
         console.log("🔐 Token from localStorage:", token);
 
-        const response = await fetch("http://localhost:5000/api/sessions/my", {
+        const response = await fetch("https://tutoring-app-v9e9.onrender.com/api/sessions/my", {
             headers: { Authorization: "Bearer " + token }
         });
 
@@ -339,7 +339,7 @@ async function loadTutorSessions() {
     const list = document.getElementById("booked-sessions-list");
     list.innerHTML = "";
 
-    const res = await fetch("http://localhost:5000/api/sessions/tutor", {
+    const res = await fetch("https://tutoring-app-v9e9.onrender.com/api/sessions/tutor", {
         headers: { Authorization: "Bearer " + token }
     });
 
@@ -370,7 +370,7 @@ function viewSessions() {
     const list = document.getElementById("booked-sessions-list");
     list.innerHTML = "";
   
-    fetch("http://localhost:5000/api/sessions/student", {
+    fetch("https://tutoring-app-v9e9.onrender.com/api/sessions/student", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token")
       }
@@ -398,7 +398,7 @@ function viewSessions() {
     if (!confirmCancel) return;
   
     try {
-      const response = await fetch(`http://localhost:5000/api/sessions/${sessionId}`, {
+      const response = await fetch(`https://tutoring-app-v9e9.onrender.com/api/sessions/${sessionId}`, {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token")
@@ -434,7 +434,7 @@ function viewTutors() {
     hideAllSections(); // Hide other sections
     document.getElementById("find-tutors-section").style.display = "block"; // Show Find Tutors
 
-    fetch("http://localhost:5000/api/tutors")
+    fetch("https://tutoring-app-v9e9.onrender.com/api/tutors")
         .then(res => res.json())
         .then(data => {
             tutors = data; // Store the tutors globally
@@ -489,7 +489,7 @@ async function viewResources() {
     try {
         const token = localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:5000/api/materials", {
+        const response = await fetch("https://tutoring-app-v9e9.onrender.com/api/materials", {
             headers: {
                 Authorization: "Bearer " + token
             }
@@ -617,7 +617,7 @@ async function saveSchedule() {
 
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://localhost:5000/api/tutors/availability", {
+    const response = await fetch("https://tutoring-app-v9e9.onrender.com/api/tutors/availability", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -672,7 +672,7 @@ async function uploadMaterial() {
 
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("http://localhost:5000/api/materials/upload", {
+            const response = await fetch("https://tutoring-app-v9e9.onrender.com/api/materials/upload", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -715,7 +715,7 @@ async function displayMaterials() {
     materialsList.innerHTML = "Loading...";
 
     try {
-        const res = await fetch("http://localhost:5000/api/materials", {
+        const res = await fetch("https://tutoring-app-v9e9.onrender.com/api/materials", {
             headers: {
                 Authorization: "Bearer " + token
             }
@@ -761,7 +761,7 @@ async function deleteMaterial(id) {
     const token = localStorage.getItem("token");
 
     try {
-        const res = await fetch(`http://localhost:5000/api/materials/${id}`, {
+        const res = await fetch(`https://tutoring-app-v9e9.onrender.com/api/materials/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -829,7 +829,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function initializeChat() {
-    socket = new WebSocket("ws://localhost:3000");
+    socket = new WebSocket("wss://tutoring-app-v9e9.onrender.com");
+
 
     const chatBox = document.getElementById("chat-box");
     const messageInput = document.getElementById("message-input");
