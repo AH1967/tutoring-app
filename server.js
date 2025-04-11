@@ -4,6 +4,9 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const http = require("http");
+const WebSocket = require("ws");
+
 
 
 const app = express();
@@ -62,6 +65,60 @@ const studyMaterialSchema = new mongoose.Schema({
 });
 
 const StudyMaterial = mongoose.model("StudyMaterial", studyMaterialSchema);
+
+// Chat Message Schema
+const messageSchema = new mongoose.Schema({
+  sender: String,
+  senderName: String,
+  role: String,
+  text: String,
+  timestamp: { type: Date, default: Date.now }
+});
+
+const ChatMessage = mongoose.model("ChatMessage", messageSchema);
+
+// WebSocket chat handler
+wss.on("connection", async (ws) => {
+  console.log("🟢 WebSocket client connected");
+
+  const previousMessages = await ChatMessage.find().sort({ timestamp: 1 }).limit(300);
+
+  previousMessages.forEach((msg) => {
+    ws.send(JSON.stringify({
+      id: msg._id,
+      sender: msg.sender,
+      senderName: msg.senderName,
+      role: msg.role,
+      text: msg.text,
+      time: new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    }));
+  });
+
+  ws.on("message", async (message) => {
+    const parsed = JSON.parse(message);
+    const { sender, senderName, role, text } = parsed;
+
+    const newMessage = new ChatMessage({ sender, senderName, role, text });
+    await newMessage.save();
+
+    wss.clients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(JSON.stringify({
+          id: newMessage._id,
+          sender,
+          senderName,
+          role,
+          text,
+          time: new Date(newMessage.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        }));
+      }
+    });
+  });
+
+  ws.on("close", () => {
+    console.log("🔴 WebSocket client disconnected");
+  });
+});
 
 
 
@@ -374,6 +431,10 @@ app.delete("/api/materials/:id", authMiddleware, async (req, res) => {
 
 
 
-const PORT = process.env.PORT || 5000;
+const server = http.createServer(app);
+const wss = new WebSocket.Server({ server });
 
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => {
+  console.log(`🚀 Server + WebSocket running on port ${PORT}`);
+});
