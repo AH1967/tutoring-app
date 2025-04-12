@@ -859,7 +859,12 @@ function initializeChat() {
             newMessage.innerHTML = `
             <strong style="color: ${color};">${messageData.senderName} ${roleText}:</strong>
              ${messageData.text}
-            <span style="font-size: 12px; color: gray; margin-left: 10px;">🕓 ${messageData.time || ""}</span>
+             <span style="font-size: 12px; color: gray; margin-left: 10px;">🕓 ${new Date(messageData.timestamp).toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+              })}</span>
+              
             `;
 
             chatBox.appendChild(newMessage);
