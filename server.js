@@ -404,8 +404,9 @@ wss.on("connection", async (ws) => {
       senderName: msg.senderName,
       role: msg.role,
       text: msg.text,
-      time: new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      timestamp: msg.timestamp // 
     }));
+    
   });
 
   ws.on("message", async (message) => {
@@ -423,8 +424,9 @@ wss.on("connection", async (ws) => {
           senderName,
           role,
           text,
-          time: new Date(newMessage.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          timestamp: newMessage.timestamp // 
         }));
+        
       }
     });
   });
