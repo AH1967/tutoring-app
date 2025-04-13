@@ -215,21 +215,27 @@ app.post("/api/sessions/book", authMiddleware, async (req, res) => {
     const { tutorId, day, time } = req.body;
     const studentId = req.user.id;
 
-    //  Get the tutor
+    // 1️⃣ Get the tutor
     const tutor = await User.findById(tutorId);
     if (!tutor || tutor.role !== "tutor") {
       return res.status(404).json({ message: "Tutor not found" });
     }
 
-    //  Check if slot is valid
+    // 2️⃣ Check if slot is valid in availability
     if (!tutor.availability[day] || !tutor.availability[day].includes(time)) {
       return res.status(400).json({ message: "Selected time slot not available" });
     }
 
-    //  Get student info
+    // 3️⃣ 🔒 Check if session already exists (prevent double booking)
+    const existingSession = await Session.findOne({ tutorId, day, time });
+    if (existingSession) {
+      return res.status(409).json({ message: "❌ This time slot is already booked." });
+    }
+
+    // 4️⃣ Get student info
     const student = await User.findById(studentId);
 
-    //  Create session
+    // 5️⃣ Create and save session
     const newSession = new Session({
       studentId,
       studentName: student.name,
@@ -242,7 +248,7 @@ app.post("/api/sessions/book", authMiddleware, async (req, res) => {
 
     await newSession.save();
 
-    // Remove booked time slot from tutor availability
+    // 6️⃣ Remove the booked time slot from tutor availability
     tutor.availability[day] = tutor.availability[day].filter(slot => slot !== time);
     if (tutor.availability[day].length === 0) {
       delete tutor.availability[day];
